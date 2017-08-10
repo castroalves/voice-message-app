@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-app.get('/play', xmlParser, function (req, res) {
+app.post('/play', xmlParser, function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/assets/voice.xml'));
 });
 
