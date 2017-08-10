@@ -8,9 +8,13 @@ var accountSid = 'AC5f2391649a6b0d4c7819a336efb47041';
 var authToken = '46ab3eb0b47adc2d4357981557dd9c3d';
 var client = require('twilio')(accountSid, authToken);
 
+var port = 80;
+
 app.use(morgan('combined'));
 
 app.use(bodyParser.text({ type: 'text/html' }));
+
+var xmlParser = bodyParser.text({ type: 'text/xml' });
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -18,7 +22,7 @@ app.get('/', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-app.get('/play', function (req, res) {
+app.get('/play', xmlParser, function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/assets/voice.xml'));
 });
 
@@ -28,7 +32,7 @@ app.post('/call', urlencodedParser, function(req, res) {
 	var toNumber = req.body.to;
 
 	client.calls.create({
-		url: 'https://app-gemidao.wedeploy.io/play',
+		url: req.headers.host + '/play',
 		from: '+55' + fromNumber,
 		to: '+55' + toNumber
 	}, function(err, call) {
@@ -47,6 +51,6 @@ app.post('/call', urlencodedParser, function(req, res) {
 
 });
 
-app.listen(8080, function () {
-  console.log('Listening on port 80');
+app.listen(port, function () {
+  console.log('Listening on port ' + port);
 });
