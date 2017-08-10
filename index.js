@@ -18,13 +18,17 @@ app.get('/', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
+app.get('/play', function (req, res) {
+	res.sendFile(path.join(__dirname + '/public/assets/voice.xml'));
+});
+
 app.post('/call', urlencodedParser, function(req, res) {
 
 	var fromNumber = req.body.from;
 	var toNumber = req.body.to;
 
 	client.calls.create({
-		url: 'https://app-play.wedeploy.io/voice.xml',
+		url: 'https://app-gemidao.wedeploy.io/play',
 		from: '+55' + fromNumber,
 		to: '+55' + toNumber
 	}, function(err, call) {
@@ -43,6 +47,6 @@ app.post('/call', urlencodedParser, function(req, res) {
 
 });
 
-app.listen(80, function () {
+app.listen(8080, function () {
   console.log('Listening on port 80');
 });
