@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>It works!</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<style>
+	body {
+	    /*background: #0e141a;*/
+	    font-family: 'Open Sans', sans-serif;
+	}
+	.container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	h1 {
+		font-size: 36px;
+		font-weight: 700;
+		color: #00d46a;
+	}
+	h2 {
+		font-weight: 300;
+		color: rgba(255, 255, 255, 0.9);
+		margin: 0;
+	}
+	.logo {
+		position: absolute;
+		bottom: 20px;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Envie o Gemidão para seu amigo!</h1>
+		<form action="/call" method="post" class="row">
+			<div class="col-4">
+				<div class="form-group">
+					<label for="from">Seu Celular:</label>
+					<input type="text" name="from" id="from" class="form-control form-control-lg" placeholder="2198765432" maxlength="11" required>
+				</div>
+				<div class="form-group">
+					<label for="to">Celular do Destinatário:</label>
+					<input type="text" name="to" id="to" class="form-control form-control-lg" placeholder="2198765432" maxlength="11" required>
+				</div>
+				<button type="submit" class="btn btn-primary">Enviar</button>
+			</div>
+		</form>
+	</div>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
+</html>
