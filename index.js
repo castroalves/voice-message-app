@@ -32,7 +32,7 @@ app.post('/call', urlencodedParser, function(req, res) {
 	var toNumber = req.body.to;
 
 	client.calls.create({
-		url: req.headers.host + '/play',
+		url: '/play',
 		from: '+55' + fromNumber,
 		to: '+55' + toNumber
 	}, function(err, call) {
