@@ -36,21 +36,29 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Envie o Gemidão para seu amigo!</h1>
-		<form action="/call" method="post" class="row">
+		<h1>SendLove</h1>
+		<form action="/call" method="post" enctype="application/x-www-form-urlencoded" class="row">
 			<div class="col-4">
 				<div class="form-group">
-					<label for="from">Seu Celular:</label>
-					<input type="text" name="from" id="from" class="form-control form-control-lg" placeholder="2198765432" maxlength="11" required>
+					<label for="from">Seu celular:</label>
+					<input type="text" name="from" id="from" class="form-control form-control-lg" maxlength="11" required>
 				</div>
 				<div class="form-group">
-					<label for="to">Celular do Destinatário:</label>
-					<input type="text" name="to" id="to" class="form-control form-control-lg" placeholder="2198765432" maxlength="11" required>
+					<label for="to">Celular do(a) destinatário(a):</label>
+					<input type="text" name="to" id="to" class="form-control form-control-lg" maxlength="11" required>
 				</div>
-				<button type="submit" class="btn btn-primary">Enviar</button>
+				<button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
 			</div>
 		</form>
 	</div>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/js/jquery.maskedinput.min.js"></script>
+	<script type="text/javascript">
+	jQuery(function($){
+	   $("#from").mask("(99) 99999-9999", { placeholder: '(__) _____-____' });
+	   $("#to").mask("(99) 99999-9999", { placeholder: '(__) _____-____' });
+	});
+	</script>
 </body>
 </html>
