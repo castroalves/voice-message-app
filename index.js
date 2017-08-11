@@ -5,15 +5,15 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
 
-// var accountSid = 'AC5f2391649a6b0d4c7819a336efb47041';
-// var authToken = '46ab3eb0b47adc2d4357981557dd9c3d';
+// var accountSid = '';
+// var authToken = '';
 // var client = require('twilio')(accountSid, authToken);
 
-var port = 8080;
+var port = 80;
 
 // Total Voice API Settings
 var totalVoiceApi = 'https://api.totalvoice.com.br/composto';
-var totalVoiceAuthToken = '0f6e38dcee7f5a8b4bc00c8df518985c';
+var totalVoiceAuthToken = '';
 
 app.use(morgan('combined'));
 
@@ -36,8 +36,7 @@ app.post('/call', urlencodedParser, function (req, res) {
 	var options = {
 		url: totalVoiceApi,
 		headers: {
-			'Access-Token': totalVoiceAuthToken,
-			// 'Accept': 'application/json'
+			'Access-Token': totalVoiceAuthToken
 		},
 		form: {
 			numero_destino: req.body.to,
@@ -56,7 +55,6 @@ app.post('/call', urlencodedParser, function (req, res) {
 
 	request.post(options, function(error, response, body) {
 		if( ! error && response.statusCode == 200 ) {
-			// res.json( JSON.parse( body ) );
 			res.end('Mensagem enviada com sucesso!');
 		} else {
 			res.end('Erro ao enviar a mensagem!');
@@ -68,10 +66,6 @@ app.post('/call', urlencodedParser, function (req, res) {
 app.post('/play', xmlParser, function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/assets/voice.xml'));
 });
-
-// 21964011605
-
-// 21999123549
 
 // app.post('/call', urlencodedParser, function(req, res) {
 
