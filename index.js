@@ -5,15 +5,15 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
 
-// var accountSid = 'AC5f2391649a6b0d4c7819a336efb47041';
-// var authToken = '46ab3eb0b47adc2d4357981557dd9c3d';
+// var accountSid = '';
+// var authToken = '';
 // var client = require('twilio')(accountSid, authToken);
 
 var port = 8080;
 
 // Total Voice API Settings
 var totalVoiceApi = 'https://api.totalvoice.com.br/composto';
-var totalVoiceAuthToken = '0f6e38dcee7f5a8b4bc00c8df518985c';
+var totalVoiceAuthToken = '';
 
 app.use(morgan('combined'));
 
