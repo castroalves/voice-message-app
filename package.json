@@ -1,15 +1,18 @@
 {
-  "name": "tutorial-nodejs",
-  "version": "1.0.0",
-  "description": "A tutorial that teaches how to use the WeDeploy Node.js service",
+  "name": "gemidao-do-zap-twilio",
+  "version": "0.1.0",
+  "description": "Envie o gemidão do zap através da API de voz do Twilio.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "request": "^2.81.0",
     "twilio": "^3.6.1"
   }
 }
