@@ -3,9 +3,9 @@
  */
 
 /* Links */
-a,
-a:focus,
-a:hover {
+.site-wrapper a,
+.site-wrapper a:focus,
+.site-wrapper a:hover {
   color: #fff;
 }
 
