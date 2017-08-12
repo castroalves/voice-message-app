@@ -7,11 +7,11 @@ var app = express();
 
 require('dotenv').config();
 
-var accountSid = process.env.TWILIO_ACCOUNT_SID;
-var authToken = process.env.TWILIO_AUTH_TOKEN;
+var accountSid = '';//process.env.TWILIO_ACCOUNT_SID;
+var authToken = '';//process.env.TWILIO_AUTH_TOKEN;
 var client = require('twilio')(accountSid, authToken);
 
-var port = 3000;
+var port = 80;
 
 app.use(morgan('combined'));
 
@@ -32,29 +32,38 @@ app.post('/play', xmlParser, function (req, res) {
 
 app.post('/call', urlencodedParser, function(req, res) {
 
-	if( req.body && req.body.from && req.body.to ) {
-
-		var fromNumber = req.body.from;
-		var toNumber = req.body.to;
-
-		client.calls.create({
-			url: 'https://app-gemidao.wedeploy.io/play',
-			from: '+55' + fromNumber,
-			to: '+55' + toNumber
-		}, function(err, call) {
-
-			res.json({
-				success: true, 
-				message: 'Sua mensagem foi enviada com sucesso!'
-			});
-
-		});
-
-	} else {
+	if( accountSid == '' || authToken == '' ) {
 		res.json({
 			success: false, 
-			message: 'Você deve preencher os dois campos.'
+			message: 'Esta é uma versão de testes.<br />Vá para <a href="https://github.com/castroalves/gemidao-do-zap-twilio">https://github.com/castroalves</a> e saiba mais.'
 		});
+	} else {
+
+		if( req.body && req.body.from && req.body.to ) {
+
+			var fromNumber = req.body.from;
+			var toNumber = req.body.to;
+
+			client.calls.create({
+				url: 'https://app-gemidao.wedeploy.io/play',
+				from: '+55' + fromNumber,
+				to: '+55' + toNumber
+			}, function(err, call) {
+
+				res.json({
+					success: true, 
+					message: 'Sua mensagem foi enviada com sucesso!'
+				});
+
+			});
+
+		} else {
+			res.json({
+				success: false, 
+				message: 'Você deve preencher os dois campos.'
+			});
+		}
+
 	}
 
 });
