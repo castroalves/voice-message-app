@@ -12,7 +12,6 @@ var authToken = process.env.TWILIO_AUTH_TOKEN;
 var client = require('twilio')(accountSid, authToken);
 
 var port = 3000;
-var debug = true;
 
 app.use(morgan('combined'));
 
@@ -28,7 +27,7 @@ app.get('/', function (req, res) {
 });
 
 app.post('/play', xmlParser, function (req, res) {
-	res.sendFile(path.join(__dirname + '/public/assets/voice.xml'));
+	res.sendFile(path.join(__dirname + '/public/assets/xml/voice.xml'));
 });
 
 app.post('/call', urlencodedParser, function(req, res) {
