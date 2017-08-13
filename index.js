@@ -7,11 +7,11 @@ var app = express();
 
 require('dotenv').config();
 
-var accountSid = '';//process.env.TWILIO_ACCOUNT_SID;
-var authToken = '';//process.env.TWILIO_AUTH_TOKEN;
+var accountSid = process.env.TWILIO_ACCOUNT_SID;
+var authToken = process.env.TWILIO_AUTH_TOKEN;
 var client = require('twilio')(accountSid, authToken);
 
-var port = 80;
+var port = 3000;
 
 app.use(morgan('combined'));
 
@@ -45,14 +45,14 @@ app.post('/call', urlencodedParser, function(req, res) {
 			var toNumber = req.body.to;
 
 			client.calls.create({
-				url: 'https://app-gemidao.wedeploy.io/play',
+				url: 'https://app-pai.wedeploy.io/play',
 				from: '+55' + fromNumber,
 				to: '+55' + toNumber
 			}, function(err, call) {
 
 				res.json({
 					success: true, 
-					message: 'Sua mensagem foi enviada com sucesso!'
+					message: 'Sua mensagem foi enviada com sucesso! Feliz Dia dos Pais!'
 				});
 
 			});
