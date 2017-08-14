@@ -1,7 +1,7 @@
 {
-  "name": "gemidao-do-zap-twilio",
-  "version": "0.1.0",
-  "description": "Envie o gemidão do zap através da API de voz do Twilio.",
+  "name": "voice-message-app",
+  "version": "0.4.0",
+  "description": "Envie aúdios em mp3 através de ligações para telefones fixos ou móveis.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
