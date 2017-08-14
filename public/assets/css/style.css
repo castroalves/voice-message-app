@@ -142,8 +142,8 @@ body {
 
 .mastfoot {
   color: rgba(255,255,255, 0.6);
-  position: absolute;
-  bottom: 0;
+  // position: absolute;
+  // bottom: 0;
 }
 
 
@@ -158,7 +158,7 @@ body {
     top: 0;
   }
   .mastfoot {
-    position: fixed;
+    // position: fixed;
     bottom: 0;
   }
   /* Start the vertical centering */
@@ -182,10 +182,21 @@ body {
 }
 
 @media (max-width: 667px) {
+  .cover-container {
+    margin-top: 40px;
+  }
   .site-wrapper-inner {
     // vertical-align: middle;
   }
   .mastfoot .inner {
     padding: 2rem 2rem 0;
   }
+}
+
+audio::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+audio::-webkit-media-controls-panel {
+    width: calc(100% + 30px); 
 }

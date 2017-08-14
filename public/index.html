@@ -31,21 +31,21 @@
 	      </div> -->
 
 	      <div class="inner cover">
-	        <h1 class="cover-heading">Envie uma mensagem para o seu pai!</h1>
-	        <p class="lead">Seu pai receberá a mensagem por ligação de celular. É de graça! Envie agora mesmo!</p>
+	        <h1 class="cover-heading">Envie uma mensagem de voz para o seu pai!</h1>
+	        <p class="lead">Funciona com celular e telefone fixo. É de graça! Envie agora mesmo!</p>
 			<div class="row">
 	        	<div class="col-sm-6 form-gemidao">
 			        <form action="/call" method="post" enctype="application/x-www-form-urlencoded" class="form">
 						<div class="form-group row">
-							<label for="from" class="col-sm-2 col-form-label">De:</label>
+							<label for="from" class="col-sm-2 col-form-label text-left">De:</label>
 							<div class="col-sm-10">
-								<input type="text" name="from" id="from" class="form-control form-control-lg" maxlength="11">
+								<input type="text" name="from" id="from" class="form-control form-control-lg">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="to" class="col-sm-2 col-form-label">Para:</label>
+							<label for="to" class="col-sm-2 col-form-label text-left">Para:</label>
 							<div class="col-sm-10">
-								<input type="text" name="to" id="to" class="form-control form-control-lg" maxlength="11">
+								<input type="text" name="to" id="to" class="form-control form-control-lg">
 							</div>
 						</div>
 						<div class="form-group row">
@@ -61,8 +61,8 @@
 
 	      <div class="mastfoot">
 	        <div class="inner">
-	          <p>Desenvolvido por <a href="https://github.com/castroalves" target="_blank">@castroalves</a>. Inspirado na versão original criada por <a href="https://github.com/haskellcamargo/gemidao-do-zap" target="_blank">@haskellcamargo</a>.
-	          <br />Hospedado gratuitamente por <a href="https://wedeploy.com/?utm_source=castroalves&utm_medium=footer-link&utm_campaign=dia-dos-pais" target="_blank">WeDeploy™</a>.</p>
+	          <p>Criado com <i class="ion-heart"></i> por <a href="https://castroalves.github.io" target="_blank">Cadu de Castro Alves</a>.
+	          <br />Hospedado gratuitamente por <a href="https://wedeploy.com/?utm_source=cadudecastroalves&utm_medium=footer-link&utm_campaign=dia-dos-pais" target="_blank">WeDeploy™</a>.</p>
 	        </div>
 	      </div>
 
@@ -111,6 +111,9 @@
 						}
 					}
 				});
+
+				$('#from').val('');
+				$('#to').val('');
 
 			} else {
 				swal(

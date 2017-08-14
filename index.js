@@ -11,7 +11,7 @@ var accountSid = process.env.TWILIO_ACCOUNT_SID;
 var authToken = process.env.TWILIO_AUTH_TOKEN;
 var client = require('twilio')(accountSid, authToken);
 
-var port = 3000;
+var port = 80;
 
 app.use(morgan('combined'));
 
