@@ -11,7 +11,18 @@ var accountSid = process.env.TWILIO_ACCOUNT_SID;
 var authToken = process.env.TWILIO_AUTH_TOKEN;
 var client = require('twilio')(accountSid, authToken);
 
-var port = 80;
+var port = process.env.DEV_PORT || 80;
+
+// try {
+// 	client.calls.create({
+// 			url: 'https://app-pai.wedeploy.io/play',
+// 			from: '+553340421419',
+// 			to: '+5521995740115'
+// 		})
+// 		.then( (call) => console.log(call) );	
+// } catch(e) {
+// 	console.log(e);	
+// }
 
 app.use(morgan('combined'));
 
@@ -39,28 +50,35 @@ app.post('/call', urlencodedParser, function(req, res) {
 		});
 	} else {
 
-		if( req.body && req.body.from && req.body.to ) {
+		if( req.body && req.body.to ) {
 
-			var fromNumber = req.body.from;
+			// var fromNumber = req.body.from;
 			var toNumber = req.body.to;
 
 			client.calls.create({
 				url: 'https://app-pai.wedeploy.io/play',
-				from: '+55' + fromNumber,
+				from: '+553340421419',
 				to: '+55' + toNumber
 			}, function(err, call) {
 
-				res.json({
-					success: true, 
-					message: 'Sua mensagem foi enviada com sucesso! Feliz Dia dos Pais!'
-				});
+				if( call.sid ) {
+					res.json({
+						success: true, 
+						message: 'Sua mensagem foi enviada com sucesso! Feliz Dia dos Pais!'
+					});	
+				} else {
+					res.json({
+						success: false, 
+						message: 'Houve um erro ao tentar enviar sua mensagem. Tente novamente.'
+					});	
+				}
 
 			});
 
 		} else {
 			res.json({
 				success: false, 
-				message: 'Você deve preencher os dois campos.'
+				message: 'Você deve informar um número de telefone válido.'
 			});
 		}
 

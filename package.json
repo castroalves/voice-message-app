@@ -14,5 +14,8 @@
     "path": "^0.12.7",
     "request": "^2.81.0",
     "twilio": "^3.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
